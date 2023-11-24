@@ -51,6 +51,8 @@ The ID is derived from the specific order of the JSON as:
 * size
 * nonce
 
+Also note that the nonce is used for pointer deletion rules and the values 0-9 are reserved for deletion pointers.
+
 # Server Commands
 
 Storage nodes have 5 actions that can be taken using the base protocol:
@@ -111,6 +113,9 @@ The purpose of generating a new valid pointer is to prove to the storage node th
 Two rules for a deletion pointer:
 * Timestamp must be newer than the existing pointer
 * Nonce must be different than the existing pointer
+* Nonce must be between 0 and 9
+
+**Note that normal pointers can have a nonce value of 0 through 9, but it's not recommended since an attacker can take a recently published pointer and use that to delete pointers on another relay.**
 
 ## Valid response
 
