@@ -112,6 +112,7 @@ The purpose of generating a new valid pointer is to prove to the storage node th
 
 Two rules for a deletion pointer:
 * Timestamp must be newer than the existing pointer
+* Timestamp can be +/- 300 seconds off of system time
 * Nonce must be different than the existing pointer
 * Nonce must be between 0 and 9
 
