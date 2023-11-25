@@ -251,10 +251,27 @@ Error 0x08 is a general error if there is a backend error retrieving data using 
 
 The context will be the referenced pointer id.
 
-## 0x09 - Error retrieving pointers
+### 0x09 - Error retrieving pointers
 
 Error 0x09 is a more specific error than 0x04 as the storage node may be unable to retrieve the pointer from the database for an underlying systems reason
 
-***Additional Errors TBD***
+The context will be the referenced pointer id.
 
+### 0x0a - Invalid Pubkey, Pubkey action not allowed
+
+Error 0x0a is sent if a pubkey attempts an action not allowed in a specific filter group. For example if a pubkey is not allowed to publish a new pointer.
+
+The context will be the pointer id sent by the disallowed pubkey.
+
+### 0x0b - Quota exceeded
+
+Error 0x0c is sent if a pubkey is in a filter group that has a limit on total amount of data or pointers allowed. For example if a pubkey is limited to 100MB of space it can associate with and tries to add more data.
+
+The context will be the pointer id sent that triggered the quota.
+
+### 0x0c - Notice
+
+This isn't necessarily an error message and can be used as more of a custom notice message. 
+
+Context and Message for this is up to the implementation of the storage node.
 
